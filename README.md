@@ -80,5 +80,31 @@ Referred above code from [https://vitalflux.com/pandas-impute-missing-values-mea
 |![image](https://user-images.githubusercontent.com/126722476/224204652-ab8a8fd9-0578-4a3b-8c1a-dd11a73235eb.png)|![image](https://user-images.githubusercontent.com/126722476/224204684-7937212b-c57a-46cf-8335-3f57adf216af.png)|
 
 
+## Data Encoding - Binary Encoder
+
+Data Encoding is one of the pre-processing techniques. The encoding process involves converting the categorical data into numerical data. This is essential since majority of the algorithms need the data to be numerical and it also helps in improving the performance of the learning model as it can interpret the relationship between features and target variable in a better way. Therefore, I converted the categorical data (Name, Sex, Cabin, Ticket, Embarked) to numerical data in both training and test datasets using category_encoders library by referring code from https://pbpython.com/categorical-encoding.html
+
+![image](https://user-images.githubusercontent.com/126722476/224235799-285c35f9-8a3a-4a5c-86f4-582102017b6f.png)
+
+Binary encoder is a combination of OneHot Encoder and Hash Encoder. In OneHot Encoder the categorical data in nominal form is converted to binary values by creating new dummy variables. The Hash Encoder does the same but encodes them using hashing which converts any arbitrary sized data in the form of a fixed size value where the output cannot be converted to input again. But Hash Encoder comes with loss of data and OneHot Encoder increase dimensionality of data. This can be fixed with Binary Encoder. That is the reason I have chosen Binary Encoder to convert my data to binary. I have referred the code from https://analyticsindiamag.com/a-complete-guide-to-categorical-data-encoding/
+
+![image](https://user-images.githubusercontent.com/126722476/224239150-217c428e-5800-45a9-af33-1eab804b8114.png)
+
+## Data Visualization
+
+Data Visualization is the graphical representation of data. It helps in data analysis of large datasets, imbalanced data, recognizing patterns and dependency among the features. Therefore I have plotted barplot from https://seaborn.pydata.org/generated/seaborn.barplot.html and lineplot from https://seaborn.pydata.org/generated/seaborn.lineplot.html to plot the dependencies between features  as shown below.
+
+### Fare vs Pclass vs Survival rate
+
+![image](https://user-images.githubusercontent.com/126722476/224204738-206928a5-ea6f-4066-aae8-99aed5c9a94a.png)
+
+### Dependency of Gender on Survival rate
+
+![image](https://user-images.githubusercontent.com/126722476/224204820-34955be5-3b56-4903-8c89-51fea7580b49.png)
+
+### Dependency of Embarked on Survival rate
+
+![image](https://user-images.githubusercontent.com/126722476/224204991-f5783253-69de-4d9d-88f8-4200e926c8ef.png)
+
 
 
