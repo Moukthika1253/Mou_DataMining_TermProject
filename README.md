@@ -1,7 +1,3 @@
-layout: page
-title: "Titanic- Data Analysis, Visualization and Accuracy score calculation"
-permalink: /titanic dataset
-
 # Titanic- Data Analysis, Visualization and Accuracy score calculation
 ![image](https://user-images.githubusercontent.com/126722476/224194133-9622c3aa-507b-4866-8884-d755e7fa4f98.png)
 
@@ -156,7 +152,10 @@ I got 0.833 as accuracy. Next I have calculated predictions on testing data usin
 
 I wanted to improve the accuracy score. So I implemented another feature selection method which is Chi-Square test referred from https://towardsdatascience.com/chi-square-test-for-feature-selection-in-machine-learning-206b1f0b8223
 
-<script src="https://gist.github.com/Moukthika1253/e0727460657024859eb5a4b462ef080d.js"></script>
+```python
+s = "Python syntax highlighting"
+print s
+```
 
 
 
