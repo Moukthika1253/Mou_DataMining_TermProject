@@ -139,13 +139,13 @@ I have found the correlation coefficients with the target variable Survived refe
 
 **correlation values with target variable**
 
+![image](https://user-images.githubusercontent.com/126722476/224258049-304faf16-89e4-4b41-89d9-de0dfd3e24a3.png)
+
 ![image](https://user-images.githubusercontent.com/126722476/224257454-70ae2d66-1dc8-45e0-8eef-b90049e0a06f.png)
 
 After analysing the correlation values from heat map, I have referred code snippet from https://towardsdatascience.com/feature-selection-in-python-using-filter-method-7ae5cbc4ee05 in selecting abs threshold value. I chose threshold to be abs(0.08) and selected only features having correlation values above abs(0.08). The features which were selected are Pclass, Sex, Parch, Ticket, Fare, Cabin, Embarked.
 
-![image](https://user-images.githubusercontent.com/126722476/224258049-304faf16-89e4-4b41-89d9-de0dfd3e24a3.png)
-
-
+## Random Forest - Learning model, Prediction, Accuracy based on features selected from correlation values
 
 
 
