@@ -38,9 +38,9 @@ I have imported necessary libraries from the data from train.csv and test.csv in
 
 ### Sample data
 
-#### Train data|#### Test data
----------------|--------------
-![image](https://user-images.githubusercontent.com/126722476/224204303-98e381a3-c718-4f15-b240-9a9cbd848d68.png)|![image](https://user-images.githubusercontent.com/126722476/224204389-72dc69a9-a315-485b-9e0f-6a64fd4a5625.png)
+|**Train data**|**Test data**|
+|---|---|
+|![image](https://user-images.githubusercontent.com/126722476/224204303-98e381a3-c718-4f15-b240-9a9cbd848d68.png)|![image](https://user-images.githubusercontent.com/126722476/224204389-72dc69a9-a315-485b-9e0f-6a64fd4a5625.png)|
 
 
 
