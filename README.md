@@ -5,6 +5,8 @@ permalink: /titanic dataset
 # Titanic- Data Analysis, Visualization and Accuracy score calculation
 ![image](https://user-images.githubusercontent.com/126722476/224194133-9622c3aa-507b-4866-8884-d755e7fa4f98.png)
 
+**Source code available here** : https://github.com/Moukthika1253/moukthika_dasika/blob/main/titanic_classification.ipynb
+
 ## Let's talk about the Titanic dataset
 
 The Kaggle website for Titanic competetion provided 3 csv files which are train.csv, test.csv  and gender_submission.csv.
@@ -146,9 +148,15 @@ I have found the correlation coefficients with the target variable Survived refe
 After analysing the correlation values from heat map, I have referred code snippet from https://towardsdatascience.com/feature-selection-in-python-using-filter-method-7ae5cbc4ee05 in selecting abs threshold value. I chose threshold to be abs(0.08) and selected only features having correlation values above abs(0.08). The features which were selected are Pclass, Sex, Parch, Ticket, Fare, Cabin, Embarked.
 
 ## Random Forest - Learning model, Prediction, Accuracy based on features selected from correlation values
+I have used the code given by https://www.kaggle.com/code/alexisbcook/titanic-tutorial/notebook for training the Random Forest model and predicting with the test data. I have given the features which were selected from above analysis as the X variable and survived as the target y variable. I have split the training data into 63%-train, 37%- test data referring the code from https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html. 
+Then I have predicted on the test data from the split and calculated the accuracy score using the metrics function from https://scikitlearn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html.
+I got 0.833 as accuracy. Next I have calculated predictions on testing data using above features. After submitting the output csv to the competetion I got the accuracy as below
 
+![image](https://user-images.githubusercontent.com/126722476/224372094-b95484db-b852-4bdd-9f63-de370ee16639.png)
 
+I wanted to improve the accuracy score. So I implemented another feature selection method which is Chi-Square test referred from https://towardsdatascience.com/chi-square-test-for-feature-selection-in-machine-learning-206b1f0b8223
 
+<script src="https://gist.github.com/Moukthika1253/e0727460657024859eb5a4b462ef080d.js"></script>
 
 
 
