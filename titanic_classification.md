@@ -107,7 +107,7 @@ encoder.fit_transform(testing_data)
 
 ## Data Visualization
 
-Data Visualization is the graphical representation of data. It helps in data analysis of large datasets, imbalanced data, recognizing patterns and dependency among the features. Therefore I have plotted barplot from https://seaborn.pydata.org/generated/seaborn.barplot.html and lineplot from https://seaborn.pydata.org/generated/seaborn.lineplot.html to plot the dependencies between features  as shown below.
+Data Visualization is the graphical representation of data. It helps in data analysis of large datasets, imbalanced data, recognizing patterns and dependency among the features. Therefore I have plotted barplot from https://seaborn.pydata.org/generated/seaborn.barplot.html and lineplot from https://seaborn.pydata.org/generated/seaborn.lineplot.html, https://seaborn.pydata.org/generated/seaborn.countplot.html to plot the dependencies between features  as shown below.
 
 ### Fare vs Pclass vs Survival rate
 
@@ -190,7 +190,7 @@ I got 0.833 as accuracy. Next I have calculated predictions on testing data usin
 
 I wanted to improve the accuracy score. So I implemented another feature selection method which is Chi-Square test referred from https://towardsdatascience.com/chi-square-test-for-feature-selection-in-machine-learning-206b1f0b8223
 
-'''python
+```python
 from sklearn.feature_selection import chi2
 X = training_data.drop('Survived',axis=1)
 y = training_data['Survived']
@@ -210,9 +210,33 @@ p_values.plot.bar()
 
 According to the Sampath kumar, from https://towardsdatascience.com/chi-square-test-for-feature-selection-in-machine-learning-206b1f0b8223, , the features SibSp and PassengerId have high p-value which indicates that they are independent from the target variable and they need not be considered for training model. Hence I selected "Pclass","Name","Sex","Age","Parch","Ticket","Fare","Cabin","Embarked" as the features to train my model using various classifiers.
 
+I have split the data again into train (63%) and test (37%) with the features selected as below. I create a list called accuracy, which will append the accuracies calculated with various classifiers.
 
+```python
+y = training_data["Survived"]
+features = ["Pclass","Name","Sex","Age","Parch","Ticket","Fare","Cabin","Embarked",]
+X = pd.get_dummies(training_data[features])
+X_train, X_test, y_train, y_test = train_test_split(X, y,  test_size=0.37, random_state=42)
+accuracy=[]
+```
 
+## Model prediction using various classifiers
 
+### Linear SVM
+
+SVC stands for Support vector Machine Classifier, it is called linear SVC because in python this algorithm gives us the best fit hyperplane which differentiates or categorizes different features in the data. In this algorithm, we will calculate the vectore which optimizes the line and to ensure that the closes point in each group lies farsthest from each other in that group. I chose the kernel to be linear so that the algorithm differentiates features using a line and the value C indicates how perfectly we want to fit the data so 1.0 is usually considered as the best default parameter. I referred code from https://pythonprogramming.net/linear-svc-example-scikit-learn-svm-python/, modified nputs according to my requirement as below. 
+
+```python
+from sklearn import svm
+linear_svm = svm.SVC(kernel='linear', C = 1.0)
+linear_svm.fit(X,y)
+predictions_svm=linear_svm.predict(X_test)
+accuracy.append(metrics.accuracy_score(y_test,predictions_svm))
+```
+
+### Decision Tree classifier
+
+Decision tree classifier is a supervised machine learning algorithm as it learns the data using its labels. It woeks on both continous dependent and categorical variables. The algorithm considers an instance
 
 
 
