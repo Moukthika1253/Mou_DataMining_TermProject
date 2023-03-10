@@ -38,11 +38,50 @@ I have imported necessary libraries from the data from train.csv and test.csv in
 
 ### Sample data
 
+Using the code from [kaggle] I have displayed the top 5 rows from train and test data.
+
 |**Train data**|**Test data**|
 |---|---|
 |![image](https://user-images.githubusercontent.com/126722476/224204303-98e381a3-c718-4f15-b240-9a9cbd848d68.png)|![image](https://user-images.githubusercontent.com/126722476/224204389-72dc69a9-a315-485b-9e0f-6a64fd4a5625.png)|
 
+## Data Pre-processing
 
+The give Titanic data has imbalanced data and if we train the model without cleaning the data, the predictions wouldn't be that accurate. 
+So in order to increase the performance of the model, consistency of data, making it balanced and to improve the accuracy of the predictions I have performed following data pre-processing techniques.
+
+### Filling out the missing values in train, test data with their Mean and Mode
+
+I found the missing values from both train and test data set and summed them up referring the code from [https://practicaldatascience.co.uk/data-science/how-to-use-isna-to-check-for-missing-values-in-pandas-dataframes] 
+
+### Before fixing missing values
+
+|Missing values in training_data|missing values in testing_data|
+|---|---|
+|![image](https://user-images.githubusercontent.com/126722476/224204551-8bb670f6-b722-43da-9112-8d9f5034d671.png)|![image](https://user-images.githubusercontent.com/126722476/224204551-8bb670f6-b722-43da-9112-8d9f5034d671.png)|
+
+From the above table we can tell that in training data columns Age, Cabin and Embarked have missing values. In test data, Age, Fare and Cabin have missing values.
+
+### After fixing missing values
+One of the better ways to deal with missing data is to fill them with their mean/median if the data is numerical and mode if the data is categorical. Since we have missing values in both categorical and numerical data I have filled them with the Mode(most repeating value) in Cabin and Embarked columns, with Mean(average) in Age, Fare columns. .
+
+'''ruby
+training_data['Age']=training_data['Age'].fillna(training_data['Age'].mean())
+training_data['Fare']=training_data['Fare'].fillna(training_data['Fare'].mean())
+training_data['Cabin']=training_data['Cabin'].fillna(training_data['Cabin'].mode()[0])
+training_data['Embarked']=training_data['Embarked'].fillna(training_data['Embarked'].mode()[0])
+testing_data['Age']=testing_data['Age'].fillna(testing_data['Age'].mean())
+testing_data['Fare']=testing_data['Fare'].fillna(testing_data['Fare'].mean())
+testing_data['Cabin']=training_data['Cabin'].fillna(testing_data['Cabin'].mode()[0])
+testing_data['Embarked']=testing_data['Embarked'].fillna(testing_data['Embarked'].mode()[0])
+'''
+
+Referred above code from [https://vitalflux.com/pandas-impute-missing-values-mean-median-mode/]
+
+
+
+|training_data|testing_data|
+|---|---|
+|![image](https://user-images.githubusercontent.com/126722476/224204593-cdfb0a69-2013-4438-8c95-dd5cac6c5ec5.png)|![image](https://user-images.githubusercontent.com/126722476/224204652-ab8a8fd9-0578-4a3b-8c1a-dd11a73235eb.png)|
 
 
 
