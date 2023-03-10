@@ -34,11 +34,14 @@ Fare|Passenger fee||
 Cabin|Cabin number||
 Embarked|Embarkation port|C = Cherbourg, Q = Queenstown, S = Southampton|
 
-I have read the data from train.csv and test.csv into dataframes training_data and testing_data respectively
+I have imported necessary libraries from the data from train.csv and test.csv into dataframes training_data and testing_data respectively through code 
 
-## Displaying top 5 rows
+### Sample data
 
-### Training dataset
+#### Train data|#### Test data
+---------------|--------------
+![image](https://user-images.githubusercontent.com/126722476/224204303-98e381a3-c718-4f15-b240-9a9cbd848d68.png)|![image](https://user-images.githubusercontent.com/126722476/224204389-72dc69a9-a315-485b-9e0f-6a64fd4a5625.png)
+
 
 
 
