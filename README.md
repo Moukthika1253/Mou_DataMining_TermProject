@@ -119,6 +119,37 @@ The Embarked indicates that passengers have embarked the ship from either port C
 I created a new dataframe by combining the columns Parch and SibSp since Parch indicates parents/children and SibSp indiactes Siblings/Spouse. Therefore, I combined them in order as it encloses a family together. I plotted the family count on X-axis and survival rate on y-axis using barplot. We can observe that the passengers who were alone rather than a family. Interesting observation!!!
 
 
+## Feature Selection
+
+We can build a predictive model by reducing the features which means that all the given features may not depend on target variable, some might be irrevalant and redundant as well. The model can predict the outcome better if we make the model only the necessary and predominant features. We can findout such features by building the HeatMap with their correlation values. These values are both positive and negative. The correlation value between two identical columns is 1. These correlation values indicate the dependency between two features. If the correlation value between a feature and target variable is positive it means that those features are positively correlated (if the correlation value of feature increases, the target variable value also increases). If the correlation value between a feature and target variable is negative it means that those features are negatively correlated (if the correlation value of feature increases, the target variable value decreases).
+
+I found the correlation values using corr() function and have drawn a heatmap referring its seaborn implementation https://seaborn.pydata.org/generated/seaborn.heatmap.html. 
+
+
+![image](https://user-images.githubusercontent.com/126722476/224252143-adadd20b-3da9-41f6-8253-c4ccc5dbbe84.png)
+In the above code, parameter annot=True is used to insert correlation values in the heatmap grid and I have set the size to 8 with paramter annot_kws. 
+
+By observing the correlation values from above Heatmap, I summarized that the range is not that great. The absolute highest value is Sex followed by Pclass and Fare. Here Sex and Pclass are negatively correlated with Survived which means passengers in upper class were given priority than lower,middle classes and Fare is positively correlated. From the heatmap, we can see that Parch and SibSp are highly correlated that makes sense as if we both combine together it gives the family data. Furthermore, Pclass and fare are also highly negativey correlated. So to see this pictorially, I have plotted a graph between them as below
+
+![image](https://user-images.githubusercontent.com/126722476/224254718-1cdc1326-b749-423e-a27b-2d0196ce1b64.png)
+
+So when the Pclass=1 the Fare is more and the fare has been decreasing for the passengers in Pclass=3 which makes sense as the rich people were given priority.
+
+I have found the correlation coefficients with the target variable Survived referring code from https://datascience.stackexchange.com/questions/39137/how-can-i-check-the-correlation-between-features-and-target-variable and modified input accordingly.
+
+**correlation values with target variable**
+
+![image](https://user-images.githubusercontent.com/126722476/224257454-70ae2d66-1dc8-45e0-8eef-b90049e0a06f.png)
+
+After analysing the correlation values from heat map, I have referred code snippet from https://towardsdatascience.com/feature-selection-in-python-using-filter-method-7ae5cbc4ee05 in selecting abs threshold value. I chose threshold to be abs(0.08) and selected only features having correlation values above abs(0.08). The features which were selected are Pclass, Sex, Parch, Ticket, Fare, Cabin, Embarked.
+
+![image](https://user-images.githubusercontent.com/126722476/224258049-304faf16-89e4-4b41-89d9-de0dfd3e24a3.png)
+
+
+
+
+
+
 
 
 
