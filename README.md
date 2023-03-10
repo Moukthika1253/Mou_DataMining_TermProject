@@ -64,7 +64,7 @@ From the above table we can tell that in training data columns Age, Cabin and Em
 ### After fixing missing values
 One of the better ways to deal with missing data is to fill them with their mean/median if the data is numerical and mode if the data is categorical. Since we have missing values in both categorical and numerical data I have filled them with the Mode(most repeating value) in Cabin and Embarked columns, with Mean(average) in Age, Fare columns. .
 
-'''
+'''python
 training_data['Age']=training_data['Age'].fillna(training_data['Age'].mean())
 training_data['Fare']=training_data['Fare'].fillna(training_data['Fare'].mean())
 training_data['Cabin']=training_data['Cabin'].fillna(training_data['Cabin'].mode()[0])
