@@ -222,6 +222,8 @@ accuracy=[]
 
 ## Model prediction using various classifiers
 
+Code for Decision Tree, Logisitic Regression was referred from https://data-flair.training/blogs/machine-learning-algorithms-in-python/
+
 ### Linear SVM
 
 SVC stands for Support vector Machine Classifier, it is called linear SVC because in python this algorithm gives us the best fit hyperplane which differentiates or categorizes different features in the data. In this algorithm, we will calculate the vectore which optimizes the line and to ensure that the closes point in each group lies farsthest from each other in that group. I chose the kernel to be linear so that the algorithm differentiates features using a line and the value C indicates how perfectly we want to fit the data so 1.0 is usually considered as the best default parameter. I referred code from https://pythonprogramming.net/linear-svc-example-scikit-learn-svm-python/, modified nputs according to my requirement as below. 
@@ -236,7 +238,35 @@ accuracy.append(metrics.accuracy_score(y_test,predictions_svm))
 
 ### Decision Tree classifier
 
-Decision tree classifier is a supervised machine learning algorithm as it learns the data using its labels. It woeks on both continous dependent and categorical variables. The algorithm considers an instance
+Decision tree classifier is a supervised machine learning algorithm as it learns the data using its labels. It woeks on both continous dependent and categorical variables. The algorithm considers an instance compares,traverses through a tree internally,selecting important features with a determined conditional statement.
+
+```python
+from sklearn.tree import DecisionTreeClassifier
+dc=DecisionTreeClassifier(criterion = "gini",random_state = 100,max_depth=3, min_samples_leaf=5)
+dc.fit(X,y)
+predictions_dc=dc.predict(X_test)
+accuracy.append(metrics.accuracy_score(y_test,predictions_dc))
+```
+
+### Logistic Regression classifier
+
+This classifier is a supervised machine learning algorithm. It is used for predicting discrete values. A logistic function is used to predict the probability of an event whose outcome is between 0 and 1. I have set maximum iterations to 1000 since I got an error "TOTAL NO. of ITERATIONS REACHED LIMIT". 
+
+**training the model**
+
+```python
+from sklearn import linear_model
+lr_model= linear_model.LogisticRegression(max_iter=1000)  
+lr_model.fit(X, y)  
+predictions_lr = lr_model.predict(X_test)
+accuracy.append(metrics.accuracy_score(y_test,predictions_lr))
+```
+**test prediction**
+
+```python
+test_predict = lr_model.predict(testing_data[features])
+test_predict
+```
 
 
 
