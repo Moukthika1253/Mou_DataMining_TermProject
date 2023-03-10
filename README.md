@@ -66,7 +66,14 @@ From the above table we can tell that in training data columns Age, Cabin and Em
 ### After fixing missing values
 One of the better ways to deal with missing data is to fill them with their mean/median if the data is numerical and mode if the data is categorical. Since we have missing values in both categorical and numerical data I have filled them with the Mode(most repeating value) in Cabin and Embarked columns, with Mean(average) in Age, Fare columns. .
 
-![image](https://user-images.githubusercontent.com/126722476/224233893-9f6c0088-d485-4f96-ad77-a33b6fa315c7.png)
+```python
+training_data['Age']=training_data['Age'].fillna(training_data['Age'].mean())
+training_data['Cabin']=training_data['Cabin'].fillna(training_data['Cabin'].mode()[0])
+training_data['Embarked']=training_data['Embarked'].fillna(training_data['Embarked'].mode()[0])
+testing_data['Age']=testing_data['Age'].fillna(testing_data['Age'].mean())
+testing_data['Fare']=testing_data['Fare'].fillna(testing_data['Fare'].mean())
+testing_data['Cabin']=training_data['Cabin'].fillna(testing_data['Cabin'].mode()[0])
+```
 
 
 Referred above code from [https://vitalflux.com/pandas-impute-missing-values-mean-median-mode/]
@@ -82,11 +89,21 @@ Referred above code from [https://vitalflux.com/pandas-impute-missing-values-mea
 
 Data Encoding is one of the pre-processing techniques. The encoding process involves converting the categorical data into numerical data. This is essential since majority of the algorithms need the data to be numerical and it also helps in improving the performance of the learning model as it can interpret the relationship between features and target variable in a better way. Therefore, I converted the categorical data (Name, Sex, Cabin, Ticket, Embarked) to numerical data in both training and test datasets using category_encoders library by referring code from https://pbpython.com/categorical-encoding.html
 
-![image](https://user-images.githubusercontent.com/126722476/224235799-285c35f9-8a3a-4a5c-86f4-582102017b6f.png)
+Sample code
+
+```python
+training_data['Name'] =training_data['Name'].astype('category').cat.codes
+testing_data['Name'] =testing_data['Name'].astype('category').cat.codes
+```
+
 
 Binary encoder is a combination of OneHot Encoder and Hash Encoder. In OneHot Encoder the categorical data in nominal form is converted to binary values by creating new dummy variables. The Hash Encoder does the same but encodes them using hashing which converts any arbitrary sized data in the form of a fixed size value where the output cannot be converted to input again. But Hash Encoder comes with loss of data and OneHot Encoder increase dimensionality of data. This can be fixed with Binary Encoder. That is the reason I have chosen Binary Encoder to convert my data to binary. I have referred the code from https://analyticsindiamag.com/a-complete-guide-to-categorical-data-encoding/
 
-![image](https://user-images.githubusercontent.com/126722476/224239150-217c428e-5800-45a9-af33-1eab804b8114.png)
+```python
+encoder=c.BinaryEncoder(cols=['Name','Sex','Ticket','Cabin','Embarked'],return_df=True)
+encoder.fit_transform(training_data)
+encoder.fit_transform(testing_data)
+```
 
 ## Data Visualization
 
@@ -124,7 +141,9 @@ We can build a predictive model by reducing the features which means that all th
 I found the correlation values using corr() function and have drawn a heatmap referring its seaborn implementation https://seaborn.pydata.org/generated/seaborn.heatmap.html. 
 
 
-![image](https://user-images.githubusercontent.com/126722476/224252143-adadd20b-3da9-41f6-8253-c4ccc5dbbe84.png)
+```python
+sns.heatmap(training_data.corr(), annot=True,annot_kws={'size': 8})
+```
 In the above code, parameter annot=True is used to insert correlation values in the heatmap grid and I have set the size to 8 with paramter annot_kws. 
 
 By observing the correlation values from above Heatmap, I summarized that the range is not that great. The absolute highest value is Sex followed by Pclass and Fare. Here Sex and Pclass are negatively correlated with Survived which means passengers in upper class were given priority than lower,middle classes and Fare is positively correlated. From the heatmap, we can see that Parch and SibSp are highly correlated that makes sense as if we both combine together it gives the family data. Furthermore, Pclass and fare are also highly negativey correlated. So to see this pictorially, I have plotted a graph between them as below
@@ -137,13 +156,32 @@ I have found the correlation coefficients with the target variable Survived refe
 
 **correlation values with target variable**
 
-![image](https://user-images.githubusercontent.com/126722476/224258049-304faf16-89e4-4b41-89d9-de0dfd3e24a3.png)
+```python
+col_names=['PassengerId','Survived','Pclass',"Name","Sex","Age","SibSp","Parch","Ticket","Fare","Cabin","Embarked"]
+corr_values=training_data[training_data.columns[0:]].corr()['Survived']
+print(corr_values)
+```
 
 ![image](https://user-images.githubusercontent.com/126722476/224257454-70ae2d66-1dc8-45e0-8eef-b90049e0a06f.png)
 
 After analysing the correlation values from heat map, I have referred code snippet from https://towardsdatascience.com/feature-selection-in-python-using-filter-method-7ae5cbc4ee05 in selecting abs threshold value. I chose threshold to be abs(0.08) and selected only features having correlation values above abs(0.08). The features which were selected are Pclass, Sex, Parch, Ticket, Fare, Cabin, Embarked.
 
 ## Random Forest - Learning model, Prediction, Accuracy based on features selected from correlation values
+
+```python
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+from sklearn import metrics
+y = training_data["Survived"]
+features = ["Pclass","Sex","Parch","Ticket","Fare","Cabin","Embarked"]
+X = pd.get_dummies(training_data[features])
+X_train, X_test, y_train, y_test = train_test_split(X, y,  test_size=0.37, random_state=42)
+model = RandomForestClassifier(n_estimators=100, max_depth=5, random_state=1)
+model.fit(X, y)
+predictions_c = model.predict(X_test)
+print(metrics.accuracy_score(y_test,predictions_c))
+```
+
 I have used the code given by https://www.kaggle.com/code/alexisbcook/titanic-tutorial/notebook for training the Random Forest model and predicting with the test data. I have given the features which were selected from above analysis as the X variable and survived as the target y variable. I have split the training data into 63%-train, 37%- test data referring the code from https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html. 
 Then I have predicted on the test data from the split and calculated the accuracy score using the metrics function from https://scikitlearn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html.
 I got 0.833 as accuracy. Next I have calculated predictions on testing data using above features. After submitting the output csv to the competetion I got the accuracy as below
@@ -152,10 +190,28 @@ I got 0.833 as accuracy. Next I have calculated predictions on testing data usin
 
 I wanted to improve the accuracy score. So I implemented another feature selection method which is Chi-Square test referred from https://towardsdatascience.com/chi-square-test-for-feature-selection-in-machine-learning-206b1f0b8223
 
-```python
-s = "Python syntax highlighting"
-print s
+'''python
+from sklearn.feature_selection import chi2
+X = training_data.drop('Survived',axis=1)
+y = training_data['Survived']
+chi_scores = chi2(X,y)
+chi_scores
 ```
+
+![image](https://user-images.githubusercontent.com/126722476/224380941-b594f91a-2190-4bb8-b214-48ebe949d27c.png)
+
+```python
+p_values = pd.Series(chi_scores[1],index = X.columns)
+p_values.sort_values(ascending = False , inplace = True)
+p_values.plot.bar()
+```
+
+![image](https://user-images.githubusercontent.com/126722476/224381171-f6345960-8740-42a8-974c-5f501f55a874.png)
+
+According to the Sampath kumar, from https://towardsdatascience.com/chi-square-test-for-feature-selection-in-machine-learning-206b1f0b8223, , the features SibSp and PassengerId have high p-value which indicates that they are independent from the target variable and they need not be considered for training model. Hence I selected "Pclass","Name","Sex","Age","Parch","Ticket","Fare","Cabin","Embarked" as the features to train my model using various classifiers.
+
+
+
 
 
 
