@@ -68,7 +68,8 @@ From the above table we can tell that in training data columns Age, Cabin and Em
 ### After fixing missing values
 One of the better ways to deal with missing data is to fill them with their mean/median if the data is numerical and mode if the data is categorical. Since we have missing values in both categorical and numerical data I have filled them with the Mode(most repeating value) in Cabin and Embarked columns, with Mean(average) in Age, Fare columns. .
 
-<script src="https://gist.github.com/Moukthika1253/5f511e88b8008bb45e90e4f595933dac"></script>
+![image](https://user-images.githubusercontent.com/126722476/224233893-9f6c0088-d485-4f96-ad77-a33b6fa315c7.png)
+
 
 Referred above code from [https://vitalflux.com/pandas-impute-missing-values-mean-median-mode/]
 
