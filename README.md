@@ -57,14 +57,14 @@ I found the missing values from both train and test data set and summed them up 
 
 |Missing values in training_data|missing values in testing_data|
 |---|---|
-|![image](https://user-images.githubusercontent.com/126722476/224204551-8bb670f6-b722-43da-9112-8d9f5034d671.png)|![image](https://user-images.githubusercontent.com/126722476/224204551-8bb670f6-b722-43da-9112-8d9f5034d671.png)|
+|![image](https://user-images.githubusercontent.com/126722476/224204551-8bb670f6-b722-43da-9112-8d9f5034d671.png)|![image](https://user-images.githubusercontent.com/126722476/224204593-cdfb0a69-2013-4438-8c95-dd5cac6c5ec5.png)|
 
 From the above table we can tell that in training data columns Age, Cabin and Embarked have missing values. In test data, Age, Fare and Cabin have missing values.
 
 ### After fixing missing values
 One of the better ways to deal with missing data is to fill them with their mean/median if the data is numerical and mode if the data is categorical. Since we have missing values in both categorical and numerical data I have filled them with the Mode(most repeating value) in Cabin and Embarked columns, with Mean(average) in Age, Fare columns. .
 
-'''ruby
+'''
 training_data['Age']=training_data['Age'].fillna(training_data['Age'].mean())
 training_data['Fare']=training_data['Fare'].fillna(training_data['Fare'].mean())
 training_data['Cabin']=training_data['Cabin'].fillna(training_data['Cabin'].mode()[0])
@@ -81,7 +81,7 @@ Referred above code from [https://vitalflux.com/pandas-impute-missing-values-mea
 
 |training_data|testing_data|
 |---|---|
-|![image](https://user-images.githubusercontent.com/126722476/224204593-cdfb0a69-2013-4438-8c95-dd5cac6c5ec5.png)|![image](https://user-images.githubusercontent.com/126722476/224204652-ab8a8fd9-0578-4a3b-8c1a-dd11a73235eb.png)|
+|![image](https://user-images.githubusercontent.com/126722476/224204652-ab8a8fd9-0578-4a3b-8c1a-dd11a73235eb.png)|![image](https://user-images.githubusercontent.com/126722476/224204684-7937212b-c57a-46cf-8335-3f57adf216af.png)|
 
 
 
