@@ -322,21 +322,20 @@ I have trained the model using Random Forest classifier,calculated accuracy scor
 
 Sno|URL
 ---|---
-[1]|[https://practicaldatascience.co.uk/data-science/how-to-use-isna-to-check-for-missing-values-in-pandas-dataframes]
-
-[2]  [https://vitalflux.com/pandas-impute-missing-values-mean-median-mode/]
+[1]|https://practicaldatascience.co.uk/data-science/how-to-use-isna-to-check-for-missing-values-in-pandas-dataframes
+[2]|(https://vitalflux.com/pandas-impute-missing-values-mean-median-mode/)
 [3]|[https://pbpython.com/categorical-encoding.html]
-[4]|<sub>[https://analyticsindiamag.com/a-complete-guide-to-categorical-data-encoding/]
-|[5]|<sub>[https://seaborn.pydata.org/generated/seaborn.barplot.html]</sub>|
-|[6]|<sub>[https://seaborn.pydata.org/generated/seaborn.lineplot.html]</sub>|
-|[7]|<sub>[https://seaborn.pydata.org/generated/seaborn.countplot.html]</sub>|
-|[8]|<sub>[https://seaborn.pydata.org/generated/seaborn.heatmap.html]</sub>|
-|[9]|<sub>[https://datascience.stackexchange.com/questions/39137/how-can-i-check-the-correlation-between-features-and-target-variable]</sub>|
-|[10]|<sub>[ https://towardsdatascience.com/feature-selection-in-python-using-filter-method-7ae5cbc4ee05]</sub>|
-|[11]|<sub>[https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html)]</sub>|
-|[12]|<sub>[https://scikitlearn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html]</sub>|
-|[13]|<sub>[https://towardsdatascience.com/chi-square-test-for-feature-selection-in-machine-learning-206b1f0b8223]</sub>|
-|[14]|<sub>[https://data-flair.training/blogs/machine-learning-algorithms-in-python/]</sub>|
+[4]|[https://analyticsindiamag.com/a-complete-guide-to-categorical-data-encoding/]
+[5]|[https://seaborn.pydata.org/generated/seaborn.barplot.html]
+[6]|[https://seaborn.pydata.org/generated/seaborn.lineplot.html]
+[7]|[https://seaborn.pydata.org/generated/seaborn.countplot.html]
+[8][https://seaborn.pydata.org/generated/seaborn.heatmap.html]
+[9]|[https://datascience.stackexchange.com/questions/39137/how-can-i-check-the-correlation-between-features-and-target-variable]
+[10]|[https://towardsdatascience.com/feature-selection-in-python-using-filter-method-7ae5cbc4ee05]
+[11]|[https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html)]
+[12]|[https://scikitlearn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html]
+[13]|[https://towardsdatascience.com/chi-square-test-for-feature-selection-in-machine-learning-206b1f0b8223]
+[14]|[https://data-flair.training/blogs/machine-learning-algorithms-in-python/]
 
 
 
