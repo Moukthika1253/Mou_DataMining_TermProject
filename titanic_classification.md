@@ -129,7 +129,7 @@ The Embarked indicates that passengers have embarked the ship from either port C
 
 ### Family vs Survival rate
 
-![image](https://user-images.githubusercontent.com/126722476/224248368-5f63b0fb-3e67-49b2-a37e-8f49f9b59e3b.png)
+![image](https://user-images.githubusercontent.com/126722476/224456888-2e9e0f02-e33a-4deb-b803-7260235d93e9.png)
 
 I created a new dataframe by combining the columns Parch and SibSp since Parch indicates parents/children and SibSp indiactes Siblings/Spouse. Therefore, I combined them in order as it encloses a family together. I plotted the family count on X-axis and survival rate on y-axis using barplot. We can observe that the passengers who were alone rather than a family. Interesting observation!!!
 
@@ -302,7 +302,23 @@ sns.lineplot(data=df,x=df["Classifiers"],y=df["Accuracies"])
 
 ## Challenges
 
+1. In the data visulaiziation part, I wanted to plot few more features but due to the data in certain features I couldn't plot them efficiently
+
+2. While traing the model with Logisitic regression classifier initially I got an error "TOTAL NO. of ITERATIONS REACHED LIMIT". I fixed this error by giving max_ierations=1000
+
+3. I initially split the data into train=63%, test=37%. Then I compared the accuracy scores between train-test split and Kaggle competetion leaderboard after submission. The former was higher than the later. I observed that the model is having overfitting. So therefore I increased the training data size by splitting train=67%, test=33%. The train-test accuracy was improved compared to previous outcome but there is not much significant improvement over the leaderboard accuracy score.
+
 ## Contribution
+
+Working on the Data analysis and predictions with different classifiers is a bit new to me. So I observed the titanic dataset from different angles to view the challenges we get with this data. First of all titanic dataset is an imbalanced dataset. It has lot of redundant data, missing values, duplicates, unecessary features which are not correlated with target variable. I browsed different how this can be fixed with various data pre-processing techniques and used them accordingly. First of all, if we look at the features, they are both categorical and numerical. So we need to fix missing values for bothe the categories in a different way. That means we can't fill the missing values with their mean in categorical columns because you can't calculate mean for categorical data. Initially, I calculated the total number of missing values for each feature using pandas isna().sum() method from both train and test dataset. Then I identified that the numerical features Age from training, Age and Fare from test dataset and categorical features Cabin, Embarked from training, Cabin from test dataset are having missing values. To fix the numerical missing values from both datasets I filled them up with their Mean and categorical features with their Mode. After fixing this issue, I checked the count again and no features had missing values.
+
+One of the other pre-processing techniques I have implemented is Data Encoding. There are different built in Encoders available in category_encoders library, I chose Binary encoder as its a combination of both Hash and One-Hot encoder. It does loss less encoding and doesn't create new values while encoding thereby solving the issues caused by the other two encoders. I converted the categorical features to numerical as encoding cannot be done to categorical features directly. Then applied Binary encoding using the BinaryEncoder() method. 
+
+In order to observe the dependency of features over one another I explored the data visualization. I have drawn plot between/among the features which I though would make sense. I used the seaborn library to draw these graphs. Initially I plotted a bargraph between Pclass and Fare. I observed that the fare was higher for the upper class passengers than the lower. Next, from the titanic data dictionary, we can see that SibSp represents siblings/spouse and Parch represents Parents/children. I thought that if we combine both these features it comprises of all the families on the ship. I joined two features and plotted countplot. My observation is that passengers who are alone have higher survival rate when compared to families. Then I plotted barplot between Sex and Survived features which shows that female passengers survived more than the male as they were given the first priority. Also I have plotted lineplot between Embarked and Survived to see passengers from which port of embarkation survived more and it is from Port C. With help of data visualization I was able to analyse the feature dependencies.
+
+I have trained the model using Random Forest classifier,calculated accuracy score and submitted the output. I didn't get a significant accuracy score. Therefore I though of improving it by suing feature selection techniques.Therefore I selected the features by using two different techniques. One is drawing a HeatMap with their correlation values and Ch-square test, analyzed the feature correlation and relationship between them. Later I fixed a correlation threshold and selected features whose correlation values are above this threshold. I used Random Forest classifier and observed that accuracy got improved. In the Ch-square test, from the scores I plot a graph referring code from internet and changed the input according to my requirement, I observed from the graph that the features having high probability values are shown with tall bars which indicates that they are independent on the target variable and can be ignored. So I've selected the features by following this concept and wanted to calculate predictions using different classifiers and select the classifier the classifier which gives highest accuracy score. Therefore, I referred the code and implemented different classifiers by changing parameters. I created a list called accuracy to append the accuracy scores at the end of each classifier and created a dataframe with classifier names, accuracies. To better understand the difference, I've plotted a linegraph and observed that Random Forest classifier gives highest accuracy score indicating better performance.
+
+
 
 ## References
 
