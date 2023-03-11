@@ -304,8 +304,8 @@ sns.lineplot(data=df,x=df["Classifiers"],y=df["Accuracies"])
 
 ## Contribution
 
-## References
-
+## |SNo|References|
+   |---|---|
 |[1]|[https://practicaldatascience.co.uk/data-science/how-to-use-isna-to-check-for-missing-values-in-pandas-dataframes]|
 
 |[2]|[https://vitalflux.com/pandas-impute-missing-values-mean-median-mode/]|
