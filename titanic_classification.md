@@ -53,7 +53,7 @@ So in order to increase the performance of the model, consistency of data, makin
 
 ### Filling out the missing values in train, test data with their Mean and Mode
 
-I found the missing values from both train and test data set and summed them up referring the code from [https://practicaldatascience.co.uk/data-science/how-to-use-isna-to-check-for-missing-values-in-pandas-dataframes] 
+I found the missing values from both train and test data set and summed them up referring the code from [1]
 
 ### Before fixing missing values
 
@@ -76,7 +76,7 @@ testing_data['Cabin']=training_data['Cabin'].fillna(testing_data['Cabin'].mode()
 ```
 
 
-Referred above code from [https://vitalflux.com/pandas-impute-missing-values-mean-median-mode/]
+Referred above code from [2]
 
 
 
@@ -300,8 +300,11 @@ sns.lineplot(data=df,x=df["Classifiers"],y=df["Accuracies"])
 
 ![image](https://user-images.githubusercontent.com/126722476/224450765-d2b0b9b5-79bb-427a-a453-1fffc6c316b7.png)
 
+## Challenges
 
+## Contribution
 
-
-
+## References
+[1] [https://practicaldatascience.co.uk/data-science/how-to-use-isna-to-check-for-missing-values-in-pandas-dataframes] 
+[2] [https://vitalflux.com/pandas-impute-missing-values-mean-median-mode/]
 
