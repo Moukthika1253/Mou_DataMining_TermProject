@@ -334,22 +334,22 @@ I have trained the model using Random Forest classifier,calculated accuracy scor
 
 ## References
 
-Sno|URL
----|---
-[1]|[Check missing values](https://practicaldatascience.co.uk/data-science/how-to-use-isna-to-check-for-missing-values-in-pandas-dataframes)
-[2]|[Mean mode](https://vitalflux.com/pandas-impute-missing-values-mean-median-mode/)
-[3]|[Categorical to numeric](https://pbpython.com/categorical-encoding.html)
-[4]|[Binary encoder]https://analyticsindiamag.com/a-complete-guide-to-categorical-data-encoding/)
-[5]|[Barplot](https://seaborn.pydata.org/generated/seaborn.barplot.html)
-[6]|[Lineplot](https://seaborn.pydata.org/generated/seaborn.lineplot.html)
-[7]|[countplot](https://seaborn.pydata.org/generated/seaborn.countplot.html)
-[8][heatmap](https://seaborn.pydata.org/generated/seaborn.heatmap.html)
-[9]|[Correlation target variable](https://datascience.stackexchange.com/questions/39137/how-can-i-check-the-correlation-between-features-and-target-variable)
-[10]|[Feature selection](https://towardsdatascience.com/feature-selection-in-python-using-filter-method-7ae5cbc4ee05)
-[11]|[train-test split](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html)
-[12]|[Accuracy score](https://scikitlearn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)
-[13]|[Chi-square test](https://towardsdatascience.com/chi-square-test-for-feature-selection-in-machine-learning-206b1f0b8223)
-[14]|[Classifiers](https://data-flair.training/blogs/machine-learning-algorithms-in-python/)
+|Sno|URL|
+|---|---|
+[1]|[Check missing values](https://practicaldatascience.co.uk/data-science/how-to-use-isna-to-check-for-missing-values-in-pandas-dataframes)|
+[2]|[Mean mode](https://vitalflux.com/pandas-impute-missing-values-mean-median-mode/)|
+[3]|[Categorical to numeric](https://pbpython.com/categorical-encoding.html)|
+[4]|[Binary encoder]https://analyticsindiamag.com/a-complete-guide-to-categorical-data-encoding/)|
+[5]|[Barplot](https://seaborn.pydata.org/generated/seaborn.barplot.html)|
+[6]|[Lineplot](https://seaborn.pydata.org/generated/seaborn.lineplot.html)|
+[7]|[countplot](https://seaborn.pydata.org/generated/seaborn.countplot.html)|
+[8]|[heatmap](https://seaborn.pydata.org/generated/seaborn.heatmap.html)|
+[9]|[Correlation target variable](https://datascience.stackexchange.com/questions/39137/how-can-i-check-the-correlation-between-features-and-target-variable)|
+[10]|[Feature selection](https://towardsdatascience.com/feature-selection-in-python-using-filter-method-7ae5cbc4ee05)|
+[11]|[train-test split](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html)|
+[12]|[Accuracy score](https://scikitlearn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|
+[13]|[Chi-square test](https://towardsdatascience.com/chi-square-test-for-feature-selection-in-machine-learning-206b1f0b8223)|
+[14]|[Classifiers](https://data-flair.training/blogs/machine-learning-algorithms-in-python/)|
 
 
 
