@@ -208,7 +208,7 @@ p_values.plot.bar()
 
 ![image](https://user-images.githubusercontent.com/126722476/224381171-f6345960-8740-42a8-974c-5f501f55a874.png)
 
-According to the Sampath kumar, from ***[13]***, the features SibSp and PassengerId have high p-value which indicates that they are independent from the target variable and they need not be considered for training model. Hence I selected "Pclass","Name","Sex","Age","Parch","Ticket","Fare","Cabin","Embarked" as the features to train my model using various classifiers.
+The features SibSp and PassengerId have high p-value which indicates that they are independent from the target variable and they need not be considered for training model. Hence I selected "Pclass","Name","Sex","Age","Parch","Ticket","Fare","Cabin","Embarked" as the features to train my model using various classifiers.
 
 I have split the data again into train (67%) and test (33%) with the features selected as below. I create a list called accuracy, which will append the accuracies calculated with various classifiers.
 
@@ -216,7 +216,7 @@ I have split the data again into train (67%) and test (33%) with the features se
 y = training_data["Survived"]
 features = ["Pclass","Name","Sex","Age","Parch","Ticket","Fare","Cabin","Embarked",]
 X = pd.get_dummies(training_data[features])
-X_train, X_test, y_train, y_test = train_test_split(X, y,  test_size=0.37, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y,  test_size=0.33, random_state=42)
 accuracy=[]
 ```
 
@@ -322,20 +322,20 @@ I have trained the model using Random Forest classifier,calculated accuracy scor
 
 Sno|URL
 ---|---
-[1]|https://practicaldatascience.co.uk/data-science/how-to-use-isna-to-check-for-missing-values-in-pandas-dataframes
-[2]|(https://vitalflux.com/pandas-impute-missing-values-mean-median-mode/)
-[3]|[https://pbpython.com/categorical-encoding.html]
-[4]|[https://analyticsindiamag.com/a-complete-guide-to-categorical-data-encoding/]
-[5]|[https://seaborn.pydata.org/generated/seaborn.barplot.html]
-[6]|[https://seaborn.pydata.org/generated/seaborn.lineplot.html]
-[7]|[https://seaborn.pydata.org/generated/seaborn.countplot.html]
-[8][https://seaborn.pydata.org/generated/seaborn.heatmap.html]
-[9]|[https://datascience.stackexchange.com/questions/39137/how-can-i-check-the-correlation-between-features-and-target-variable]
-[10]|[https://towardsdatascience.com/feature-selection-in-python-using-filter-method-7ae5cbc4ee05]
-[11]|[https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html)]
-[12]|[https://scikitlearn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html]
-[13]|[https://towardsdatascience.com/chi-square-test-for-feature-selection-in-machine-learning-206b1f0b8223]
-[14]|[https://data-flair.training/blogs/machine-learning-algorithms-in-python/]
+[1]|[Check missing values](https://practicaldatascience.co.uk/data-science/how-to-use-isna-to-check-for-missing-values-in-pandas-dataframes)
+[2]|[Mean mode](https://vitalflux.com/pandas-impute-missing-values-mean-median-mode/)
+[3]|[Categorical to numeric](https://pbpython.com/categorical-encoding.html)
+[4]|[Binary encoder]https://analyticsindiamag.com/a-complete-guide-to-categorical-data-encoding/)
+[5]|[Barplot](https://seaborn.pydata.org/generated/seaborn.barplot.html)
+[6]|[Lineplot](https://seaborn.pydata.org/generated/seaborn.lineplot.html)
+[7]|[countplot](https://seaborn.pydata.org/generated/seaborn.countplot.html)
+[8][heatmap](https://seaborn.pydata.org/generated/seaborn.heatmap.html)
+[9]|[Correlation target variable](https://datascience.stackexchange.com/questions/39137/how-can-i-check-the-correlation-between-features-and-target-variable)
+[10]|[Feature selection](https://towardsdatascience.com/feature-selection-in-python-using-filter-method-7ae5cbc4ee05)
+[11]|[train-test split](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html)
+[12]|[Accuracy score](https://scikitlearn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)
+[13]|[Chi-square test](https://towardsdatascience.com/chi-square-test-for-feature-selection-in-machine-learning-206b1f0b8223)
+[14]|[Classifiers](https://data-flair.training/blogs/machine-learning-algorithms-in-python/)
 
 
 
