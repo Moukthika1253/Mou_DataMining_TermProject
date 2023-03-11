@@ -284,9 +284,10 @@ df=pd.DataFrame(class_accuracy,columns=["Classifiers","Accuracies"])
 print(df)
 sns.lineplot(data=df,x=df["Classifiers"],y=df["Accuracies"])
 ```
+
 **Accuracies with train=63% test=37% split**
 
-![image](https://user-images.githubusercontent.com/126722476/224461063-51101cbd-689c-4421-8f97-f90e2efeb15c.png)
+![image](https://user-images.githubusercontent.com/126722476/224461254-865dd5f2-30e8-47b5-b76a-0fd3e70e03c7.png)
 
 
 **Accuracies with train=67% test=33% split**
