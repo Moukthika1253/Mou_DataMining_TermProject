@@ -310,11 +310,11 @@ sns.lineplot(data=df,x=df["Classifiers"],y=df["Accuracies"])
  ---|---|
 |[1]|[https://practicaldatascience.co.uk/data-science/how-to-use-isna-to-check-for-missing-values-in-pandas-dataframes]|
 
-|[2]|[https://vitalflux.com/pandas-impute-missing-values-mean-median-mode/]|
+[2]|[https://vitalflux.com/pandas-impute-missing-values-mean-median-mode/]
 
-|[3]|[https://pbpython.com/categorical-encoding.html]|
+[3]|[https://pbpython.com/categorical-encoding.html]
 
-|[4]|[https://analyticsindiamag.com/a-complete-guide-to-categorical-data-encoding/]|
+[4]|[https://analyticsindiamag.com/a-complete-guide-to-categorical-data-encoding/]
 
 |[5]|[https://seaborn.pydata.org/generated/seaborn.barplot.html]|
 
