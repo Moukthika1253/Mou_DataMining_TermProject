@@ -320,9 +320,9 @@ I have trained the model using Random Forest classifier,calculated accuracy scor
 
 ## References
 
-
-
-[1] [https://practicaldatascience.co.uk/data-science/how-to-use-isna-to-check-for-missing-values-in-pandas-dataframes]
+Sno|URL
+---|---
+[1]|[https://practicaldatascience.co.uk/data-science/how-to-use-isna-to-check-for-missing-values-in-pandas-dataframes]
 
 [2]  [https://vitalflux.com/pandas-impute-missing-values-mean-median-mode/]
 [3]|[https://pbpython.com/categorical-encoding.html]
