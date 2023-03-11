@@ -53,7 +53,7 @@ So in order to increase the performance of the model, consistency of data, makin
 
 ### Filling out the missing values in train, test data with their Mean and Mode
 
-I found the missing values from both train and test data set and summed them up referring the code from [1]
+I found the missing values from both train and test data set and summed them up referring the code from ***[1]***
 
 ### Before fixing missing values
 
@@ -76,7 +76,7 @@ testing_data['Cabin']=training_data['Cabin'].fillna(testing_data['Cabin'].mode()
 ```
 
 
-Referred above code from [2]
+Referred above code from ***[2]***
 
 
 
@@ -87,7 +87,7 @@ Referred above code from [2]
 
 ## Data Encoding - Binary Encoder
 
-Data Encoding is one of the pre-processing techniques. The encoding process involves converting the categorical data into numerical data. This is essential since majority of the algorithms need the data to be numerical and it also helps in improving the performance of the learning model as it can interpret the relationship between features and target variable in a better way. Therefore, I converted the categorical data (Name, Sex, Cabin, Ticket, Embarked) to numerical data in both training and test datasets using category_encoders library by referring code from https://pbpython.com/categorical-encoding.html
+Data Encoding is one of the pre-processing techniques. The encoding process involves converting the categorical data into numerical data. This is essential since majority of the algorithms need the data to be numerical and it also helps in improving the performance of the learning model as it can interpret the relationship between features and target variable in a better way. Therefore, I converted the categorical data (Name, Sex, Cabin, Ticket, Embarked) to numerical data in both training and test datasets using category_encoders library by referring code from ***[3]***
 
 Sample code
 
@@ -97,7 +97,7 @@ testing_data['Name'] =testing_data['Name'].astype('category').cat.codes
 ```
 
 
-Binary encoder is a combination of OneHot Encoder and Hash Encoder. In OneHot Encoder the categorical data in nominal form is converted to binary values by creating new dummy variables. The Hash Encoder does the same but encodes them using hashing which converts any arbitrary sized data in the form of a fixed size value where the output cannot be converted to input again. But Hash Encoder comes with loss of data and OneHot Encoder increase dimensionality of data. This can be fixed with Binary Encoder. That is the reason I have chosen Binary Encoder to convert my data to binary. I have referred the code from https://analyticsindiamag.com/a-complete-guide-to-categorical-data-encoding/
+Binary encoder is a combination of OneHot Encoder and Hash Encoder. In OneHot Encoder the categorical data in nominal form is converted to binary values by creating new dummy variables. The Hash Encoder does the same but encodes them using hashing which converts any arbitrary sized data in the form of a fixed size value where the output cannot be converted to input again. But Hash Encoder comes with loss of data and OneHot Encoder increase dimensionality of data. This can be fixed with Binary Encoder. That is the reason I have chosen Binary Encoder to convert my data to binary. I have referred the code from ***[4]***
 
 ```python
 encoder=c.BinaryEncoder(cols=['Name','Sex','Ticket','Cabin','Embarked'],return_df=True)
@@ -107,7 +107,7 @@ encoder.fit_transform(testing_data)
 
 ## Data Visualization
 
-Data Visualization is the graphical representation of data. It helps in data analysis of large datasets, imbalanced data, recognizing patterns and dependency among the features. Therefore I have plotted barplot from https://seaborn.pydata.org/generated/seaborn.barplot.html and lineplot from https://seaborn.pydata.org/generated/seaborn.lineplot.html, https://seaborn.pydata.org/generated/seaborn.countplot.html to plot the dependencies between features  as shown below.
+Data Visualization is the graphical representation of data. It helps in data analysis of large datasets, imbalanced data, recognizing patterns and dependency among the features. Therefore I have plotted barplot from ***-[5]***  and lineplot from ***-[6]*** , ***-[7]*** to plot the dependencies between features  as shown below.
 
 ### Fare vs Pclass vs Survival rate
 
@@ -306,5 +306,16 @@ sns.lineplot(data=df,x=df["Classifiers"],y=df["Accuracies"])
 
 ## References
 [1] [https://practicaldatascience.co.uk/data-science/how-to-use-isna-to-check-for-missing-values-in-pandas-dataframes] 
+
 [2] [https://vitalflux.com/pandas-impute-missing-values-mean-median-mode/]
+
+[3] [https://pbpython.com/categorical-encoding.html]
+
+[4] [https://analyticsindiamag.com/a-complete-guide-to-categorical-data-encoding/]
+
+[5] [https://seaborn.pydata.org/generated/seaborn.barplot.html]
+
+[6] [https://seaborn.pydata.org/generated/seaborn.lineplot.html]
+
+[7] [https://seaborn.pydata.org/generated/seaborn.countplot.html]
 
