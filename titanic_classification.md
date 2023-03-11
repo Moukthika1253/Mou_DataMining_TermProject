@@ -188,6 +188,8 @@ I got 0.833 as accuracy. Next I have calculated predictions on testing data usin
 
 ![image](https://user-images.githubusercontent.com/126722476/224372094-b95484db-b852-4bdd-9f63-de370ee16639.png)
 
+This is when I observed that its leading to overfitting because the test accuracy is less than my train accuracy. So I have split the training data into train=67% instead of 63% and test from 37% to 33%.
+
 I wanted to improve the accuracy score. So I implemented another feature selection method which is Chi-Square test referred from https://towardsdatascience.com/chi-square-test-for-feature-selection-in-machine-learning-206b1f0b8223
 
 ```python
@@ -210,7 +212,7 @@ p_values.plot.bar()
 
 According to the Sampath kumar, from https://towardsdatascience.com/chi-square-test-for-feature-selection-in-machine-learning-206b1f0b8223, , the features SibSp and PassengerId have high p-value which indicates that they are independent from the target variable and they need not be considered for training model. Hence I selected "Pclass","Name","Sex","Age","Parch","Ticket","Fare","Cabin","Embarked" as the features to train my model using various classifiers.
 
-I have split the data again into train (63%) and test (37%) with the features selected as below. I create a list called accuracy, which will append the accuracies calculated with various classifiers.
+I have split the data again into train (67%) and test (33%) with the features selected as below. I create a list called accuracy, which will append the accuracies calculated with various classifiers.
 
 ```python
 y = training_data["Survived"]
@@ -250,7 +252,7 @@ accuracy.append(metrics.accuracy_score(y_test,predictions_dc))
 
 ### Logistic Regression classifier
 
-This classifier is a supervised machine learning algorithm. It is used for predicting discrete values. A logistic function is used to predict the probability of an event whose outcome is between 0 and 1. I have set maximum iterations to 1000 since I got an error "TOTAL NO. of ITERATIONS REACHED LIMIT". 
+This classifier is a supervised machine learning algorithm. It is used for predicting discrete values. A logistic function is used to predict the probability of an event whose outcome is between 0 and 1. I have set maximum iterations to 1000 since I got an error "TOTAL NO. of ITERATIONS REACHED LIMIT". Then I trained the model and appended accuracy score to the list.
 
 **training the model**
 
@@ -261,12 +263,42 @@ lr_model.fit(X, y)
 predictions_lr = lr_model.predict(X_test)
 accuracy.append(metrics.accuracy_score(y_test,predictions_lr))
 ```
-**test prediction**
+
+## Random Forest Classifier
+
+This classifier fits a number of decision tree classifiers on various features of the dataset and uses averaging to improve the predictive accuracy and control over-fitting. I used the Kaggle code to train my model with random forest classifier and then calculated test data predictions. Apended the accuracy score in the end. I have created a dataframe 'class_accuracy' by creating two columns one for the classifier names and other their accuracies. Then using the seaborn I plotted a line graph with classifier names on x-axis and accuracy scores on y-axis. From the graph I observed that highest accuracy score was achieved by Random Forest classifier. Therefore I calculated the test predictions from this classifier and submitted the output file. I submitted the output file multiple times with random forest classifier predictions. The highest accuracy according to Kaggle leaderboard I got so far is 0.78468.
+
+**train the model**
 
 ```python
-test_predict = lr_model.predict(testing_data[features])
+from sklearn.ensemble import RandomForestClassifier
+model = RandomForestClassifier(n_estimators=100, max_depth=5, random_state=1)
+model.fit(X, y)
+predictions_rf = model.predict(X_test)
+accuracy.append(metrics.accuracy_score(y_test,predictions_rf))
+```
+
+**test the model**
+
+```python
+test_predict = model.predict(testing_data[features])
 test_predict
 ```
+
+**Accuracy plotting**
+
+```python
+class_accuracy=[["Linear SVM",accuracy[0]],["Decision Tree",accuracy[1]],["Logisitic Regression",accuracy[2]],["Random Forest",accuracy[3]]]
+df=pd.DataFrame(class_accuracy,columns=["Classifiers","Accuracies"])
+print(df)
+sns.lineplot(data=df,x=df["Classifiers"],y=df["Accuracies"])
+```
+
+![image](https://user-images.githubusercontent.com/126722476/224450720-cceb530d-04c5-4aa3-b5f3-fafa091ecd81.png)
+
+![image](https://user-images.githubusercontent.com/126722476/224450738-5c804b34-4e3b-48b3-b547-3734060c088c.png)
+
+![image](https://user-images.githubusercontent.com/126722476/224450765-d2b0b9b5-79bb-427a-a453-1fffc6c316b7.png)
 
 
 
