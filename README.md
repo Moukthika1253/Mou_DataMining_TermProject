@@ -1,7 +1,7 @@
 # Titanic- Data Analysis, Visualization and Accuracy score calculation
 ![image](https://user-images.githubusercontent.com/126722476/224194133-9622c3aa-507b-4866-8884-d755e7fa4f98.png)
 
-**Source code available here** : https://github.com/Moukthika1253/moukthika_dasika/blob/main/titanic_classification.ipynb
+**Source code available here** : [https://github.com/Moukthika1253/moukthika_dasika/blob/main/titanic_classification.ipynb]
 
 ## Let's talk about the Titanic dataset
 
@@ -323,9 +323,10 @@ I have trained the model using Random Forest classifier,calculated accuracy scor
 
 
 [1] [https://practicaldatascience.co.uk/data-science/how-to-use-isna-to-check-for-missing-values-in-pandas-dataframes]
+
 [2]  [https://vitalflux.com/pandas-impute-missing-values-mean-median-mode/]
-[3]|<sub>[https://pbpython.com/categorical-encoding.html]</sub>|
-[4]|<sub>[https://analyticsindiamag.com/a-complete-guide-to-categorical-data-encoding/]</sub>|
+[3]|[https://pbpython.com/categorical-encoding.html]
+[4]|<sub>[https://analyticsindiamag.com/a-complete-guide-to-categorical-data-encoding/]
 |[5]|<sub>[https://seaborn.pydata.org/generated/seaborn.barplot.html]</sub>|
 |[6]|<sub>[https://seaborn.pydata.org/generated/seaborn.lineplot.html]</sub>|
 |[7]|<sub>[https://seaborn.pydata.org/generated/seaborn.countplot.html]</sub>|
