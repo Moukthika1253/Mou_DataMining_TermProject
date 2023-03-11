@@ -276,13 +276,6 @@ predictions_rf = model.predict(X_test)
 accuracy.append(metrics.accuracy_score(y_test,predictions_rf))
 ```
 
-**test the model**
-
-```python
-test_predict = model.predict(testing_data[features])
-test_predict
-```
-
 **Accuracy plotting**
 
 ```python
@@ -292,11 +285,24 @@ print(df)
 sns.lineplot(data=df,x=df["Classifiers"],y=df["Accuracies"])
 ```
 
-![image](https://user-images.githubusercontent.com/126722476/224450720-cceb530d-04c5-4aa3-b5f3-fafa091ecd81.png)
+![image](https://user-images.githubusercontent.com/126722476/224450720-cceb530d-04c5-4aa3-b5f3-fafa091ecd81.png) 
+
+**Accuracies with train=63% test=37% split**
+
+![image](https://user-images.githubusercontent.com/126722476/224461063-51101cbd-689c-4421-8f97-f90e2efeb15c.png)
 
 ![image](https://user-images.githubusercontent.com/126722476/224450738-5c804b34-4e3b-48b3-b547-3734060c088c.png)
 
+**test the model**
+
+```python
+test_predict = model.predict(testing_data[features])
+test_predict
+```
+
 ![image](https://user-images.githubusercontent.com/126722476/224450765-d2b0b9b5-79bb-427a-a453-1fffc6c316b7.png)
+
+
 
 ## Challenges
 
