@@ -308,7 +308,7 @@ sns.lineplot(data=df,x=df["Classifiers"],y=df["Accuracies"])
 
 **SNo**|**URL**
  ---|---|
-|[1]|[https://practicaldatascience.co.uk/data-science/how-to-use-isna-to-check-for-missing-values-in-pandas-dataframes]|
+|[1]|<sub>[https://practicaldatascience.co.uk/data-science/how-to-use-isna-to-check-for-missing-values-in-pandas-dataframes]</sub>|
 [2]|[https://vitalflux.com/pandas-impute-missing-values-mean-median-mode/]
 [3]|[https://pbpython.com/categorical-encoding.html]
 [4]|[https://analyticsindiamag.com/a-complete-guide-to-categorical-data-encoding/]
@@ -316,8 +316,7 @@ sns.lineplot(data=df,x=df["Classifiers"],y=df["Accuracies"])
 |[6]|[https://seaborn.pydata.org/generated/seaborn.lineplot.html]|
 |[7]|[https://seaborn.pydata.org/generated/seaborn.countplot.html]|
 |[8]|[https://seaborn.pydata.org/generated/seaborn.heatmap.html]|
-|[9]|[https://datascience.stackexchange.com/questions/39137/how-can-i-check-the-correlation-between-features-and-target-variable
-]|
+|[9]|[https://datascience.stackexchange.com/questions/39137/how-can-i-check-the-correlation-between-features-and-target-variable]|
 |[10]|[ https://towardsdatascience.com/feature-selection-in-python-using-filter-method-7ae5cbc4ee05]|
 |[11]|[https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html)]|
 |[12]|[https://scikitlearn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html]|
