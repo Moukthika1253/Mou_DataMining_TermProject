@@ -1,7 +1,7 @@
 # Titanic- Data Analysis, Visualization and Accuracy score calculation
 ![image](https://user-images.githubusercontent.com/126722476/224194133-9622c3aa-507b-4866-8884-d755e7fa4f98.png)
 
-**Source code available here** : [https://github.com/Moukthika1253/moukthika_dasika/blob/main/titanic_classification.ipynb]
+**Source code available here** : https://github.com/Moukthika1253/moukthika_dasika/blob/main/titanic_classification.ipynb
 
 ## Let's talk about the Titanic dataset
 
@@ -19,22 +19,20 @@ This file contains the data about the female passengers  and their survival outc
 
 ## Data Dictionary
 
-**Variable** | **Definition** | **Key** 
--------------|----------------|--------
-PassengerId  |Serial numbers which are uniques to each passenger|
-Survived| Survival outcome| 0= didn't survive  1=survived|
-Pclass|Ticket class| 1=Upper, 2=Middle, 3=lower|
-Name|Name of passengers| |
-Sex|Gender of passengers|Male,Female|
-Age|Age of passengers in years.Age is fractional if less than 1. If the age is estimated, is it in the form of xx.5||
-SibSp|number of sibling/spouses on ship.Sibling = brother, sister, stepbrother, stepsister
-Spouse = husband, wife|0-no spouse|
-Parch|number of parents/children on ship.Parent = mother, father
-Child = daughter, son, stepdaughter, stepson|0-have only Nanny|
-Ticket|Ticket number||
-Fare|Passenger fee||
-Cabin|Cabin number||
-Embarked|Embarkation port|C = Cherbourg, Q = Queenstown, S = Southampton|
+PassengerId  - Serial numbers which are uniques to each passenger
+Survived - 0= didn't survive  1=survived
+Pclass - Ticket class  1=Upper, 2=Middle, 3=lower
+Name - Name of passengers
+Sex - Gender of passengers-Male,Female
+Age - Age of passengers in years.Age is fractional if less than 1. If the age is estimated, is it in the form of xx.5
+SibSp - number of sibling/spouses on ship.Sibling = brother, sister, stepbrother, stepsister
+Spouse - husband, wife, 0-no spouse
+Parch - number of parents/children on ship.Parent = mother, father
+Child - daughter, son, stepdaughter, stepson. 0-have only Nanny
+Ticket - Ticket number
+Fare - Passenger fee
+Cabin - Cabin number
+Embarked - Embarkation port. C = Cherbourg, Q = Queenstown, S = Southampton
 
 I have imported necessary libraries from the data from train.csv and test.csv into dataframes training_data and testing_data respectively through code 
 
@@ -322,10 +320,10 @@ I have trained the model using Random Forest classifier,calculated accuracy scor
 
 ## References
 
-**SNo**|**URL**
- ---|---|
-|[1]|<sub>[https://practicaldatascience.co.uk/data-science/how-to-use-isna-to-check-for-missing-values-in-pandas-dataframes]</sub>|
-[2]|<sub>[https://vitalflux.com/pandas-impute-missing-values-mean-median-mode/]</sub></sub>|
+
+
+[1] [https://practicaldatascience.co.uk/data-science/how-to-use-isna-to-check-for-missing-values-in-pandas-dataframes]
+[2]  [https://vitalflux.com/pandas-impute-missing-values-mean-median-mode/]
 [3]|<sub>[https://pbpython.com/categorical-encoding.html]</sub>|
 [4]|<sub>[https://analyticsindiamag.com/a-complete-guide-to-categorical-data-encoding/]</sub>|
 |[5]|<sub>[https://seaborn.pydata.org/generated/seaborn.barplot.html]</sub>|
