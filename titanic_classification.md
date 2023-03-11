@@ -53,7 +53,7 @@ So in order to increase the performance of the model, consistency of data, makin
 
 ### Filling out the missing values in train, test data with their Mean and Mode
 
-I found the missing values from both train and test data set and summed them up referring the code from - ***[1]*** -1
+I found the missing values from both train and test data set and summed them up referring the code from ```diff ***[1]*** ```
 
 ### Before fixing missing values
 
