@@ -62,14 +62,12 @@ I found the missing values from both train and test data set and summed them up 
 From the above table we can tell that in training data columns Age, Cabin and Embarked have missing values. In test data, Age, Fare and Cabin have missing values.
 
 ### After fixing missing values
-One of the better ways to deal with missing data is to fill them with their mean/median if the data is numerical and mode if the data is categorical. Since we have missing values in both categorical and numerical data I have filled them with the Mode(most repeating value) in Cabin and Embarked columns, with Mean(average) in Age, Fare columns. .
+One of the better ways to deal with missing data is to fill them with their mean/median if the data is numerical and mode if the data is categorical. Since we have missing values in both categorical and numerical data I have filled them with the Mode(most repeating value) in Cabin and Embarked columns, with Mean(average) in Age, Fare columns. 
+
+Sample code
 
 ```python
 training_data['Age']=training_data['Age'].fillna(training_data['Age'].mean())
-training_data['Cabin']=training_data['Cabin'].fillna(training_data['Cabin'].mode()[0])
-training_data['Embarked']=training_data['Embarked'].fillna(training_data['Embarked'].mode()[0])
-testing_data['Age']=testing_data['Age'].fillna(testing_data['Age'].mean())
-testing_data['Fare']=testing_data['Fare'].fillna(testing_data['Fare'].mean())
 testing_data['Cabin']=training_data['Cabin'].fillna(testing_data['Cabin'].mode()[0])
 ```
 
@@ -131,6 +129,12 @@ The Embarked indicates that passengers have embarked the ship from either port C
 
 I created a new dataframe by combining the columns Parch and SibSp since Parch indicates parents/children and SibSp indiactes Siblings/Spouse. Therefore, I combined them in order as it encloses a family together. I plotted the family count on X-axis and survival rate on y-axis using barplot. We can observe that the passengers who were alone rather than a family. Interesting observation!!!
 
+## Kaggle Original Score 
+
+Accuracy score from train test split : 0.806060606060606
+
+![image](https://user-images.githubusercontent.com/126722476/224465088-2603b41c-fae8-4a75-93bd-81da93510121.png)
+
 
 ## Feature Selection
 
@@ -167,12 +171,7 @@ After analysing the correlation values from heat map, I have referred code snipp
 ## Random Forest - Learning model, Prediction, Accuracy based on features selected from correlation values
 
 ```python
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.model_selection import train_test_split
-from sklearn import metrics
-y = training_data["Survived"]
 features = ["Pclass","Sex","Parch","Ticket","Fare","Cabin","Embarked"]
-X = pd.get_dummies(training_data[features])
 X_train, X_test, y_train, y_test = train_test_split(X, y,  test_size=0.37, random_state=42)
 model = RandomForestClassifier(n_estimators=100, max_depth=5, random_state=1)
 model.fit(X, y)
@@ -213,9 +212,7 @@ The features SibSp and PassengerId have high p-value which indicates that they a
 I have split the data again into train (67%) and test (33%) with the features selected as below. I create a list called accuracy, which will append the accuracies calculated with various classifiers.
 
 ```python
-y = training_data["Survived"]
 features = ["Pclass","Name","Sex","Age","Parch","Ticket","Fare","Cabin","Embarked",]
-X = pd.get_dummies(training_data[features])
 X_train, X_test, y_train, y_test = train_test_split(X, y,  test_size=0.33, random_state=42)
 accuracy=[]
 ```
@@ -245,7 +242,6 @@ from sklearn.tree import DecisionTreeClassifier
 dc=DecisionTreeClassifier(criterion = "gini",random_state = 100,max_depth=3, min_samples_leaf=5)
 dc.fit(X,y)
 predictions_dc=dc.predict(X_test)
-accuracy.append(metrics.accuracy_score(y_test,predictions_dc))
 ```
 
 ### Logistic Regression classifier
@@ -259,22 +255,12 @@ from sklearn import linear_model
 lr_model= linear_model.LogisticRegression(max_iter=1000)  
 lr_model.fit(X, y)  
 predictions_lr = lr_model.predict(X_test)
-accuracy.append(metrics.accuracy_score(y_test,predictions_lr))
 ```
 
 ## Random Forest Classifier
 
 This classifier fits a number of decision tree classifiers on various features of the dataset and uses averaging to improve the predictive accuracy and control over-fitting. I used the Kaggle code to train my model with random forest classifier and then calculated test data predictions. Apended the accuracy score in the end. I have created a dataframe 'class_accuracy' by creating two columns one for the classifier names and other their accuracies. Then using the seaborn I plotted a line graph with classifier names on x-axis and accuracy scores on y-axis. From the graph I observed that highest accuracy score was achieved by Random Forest classifier. Therefore I calculated the test predictions from this classifier and submitted the output file. I submitted the output file multiple times with random forest classifier predictions. The highest accuracy according to Kaggle leaderboard I got so far is 0.78468.
 
-**train the model**
-
-```python
-from sklearn.ensemble import RandomForestClassifier
-model = RandomForestClassifier(n_estimators=100, max_depth=5, random_state=1)
-model.fit(X, y)
-predictions_rf = model.predict(X_test)
-accuracy.append(metrics.accuracy_score(y_test,predictions_rf))
-```
 
 **Accuracy plotting**
 
@@ -300,7 +286,6 @@ Improvement in accuracy scores
 
 
 
-
 **test the model**
 
 ```python
@@ -310,7 +295,7 @@ test_predict
 
 ![image](https://user-images.githubusercontent.com/126722476/224450765-d2b0b9b5-79bb-427a-a453-1fffc6c316b7.png)
 
-
+The accuracy score improved from 0.77751 to 0.78468 after doing data pre-processing, Feature selection and data visualization.
 
 ## Challenges
 
