@@ -53,10 +53,7 @@ So in order to increase the performance of the model, consistency of data, makin
 
 ### Filling out the missing values in train, test data with their Mean and Mode
 
-I found the missing values from both train and test data set and summed them up referring the code from 
-```diff
-- [1]
-```
+I found the missing values from both train and test data set and summed them up referring the code from ***[1]***
 
 ### Before fixing missing values
 
@@ -110,7 +107,7 @@ encoder.fit_transform(testing_data)
 
 ## Data Visualization
 
-Data Visualization is the graphical representation of data. It helps in data analysis of large datasets, imbalanced data, recognizing patterns and dependency among the features. Therefore I have plotted barplot from ***-[5]***  and lineplot from ***-[6]*** , ***-[7]*** to plot the dependencies between features  as shown below.
+Data Visualization is the graphical representation of data. It helps in data analysis of large datasets, imbalanced data, recognizing patterns and dependency among the features. Therefore I have plotted barplot from ***[5]***  and lineplot from ***[6]*** , ***[7]*** to plot the dependencies between features  as shown below.
 
 ### Fare vs Pclass vs Survival rate
 
@@ -122,7 +119,7 @@ Pclass=1 indicates upper class, Pclass=2 middle and Pclass=3 lower class respect
 
 ![image](https://user-images.githubusercontent.com/126722476/224204820-34955be5-3b56-4903-8c89-51fea7580b49.png)
 
-I have used the code from https://www.kaggle.com/code/alexisbcook/titanic-tutorial/notebook to find out the percentage of women and men survived. And I have plotted the features 'Sex' on X-axis and 'Survived' on Y-axs to observe the pattern graphically. It seems that between 74% of the women survived when compared to male its only about 19%. This indicates that priority was given to women.
+I have used the code from ***[1]*** to find out the percentage of women and men survived. And I have plotted the features 'Sex' on X-axis and 'Survived' on Y-axs to observe the pattern graphically. It seems that between 74% of the women survived when compared to male its only about 19%. This indicates that priority was given to women.
 
 ### Dependency of Embarked on Survival rate
 
@@ -141,7 +138,7 @@ I created a new dataframe by combining the columns Parch and SibSp since Parch i
 
 We can build a predictive model by reducing the features which means that all the given features may not depend on target variable, some might be irrevalant and redundant as well. The model can predict the outcome better if we make the model only the necessary and predominant features. We can findout such features by building the HeatMap with their correlation values. These values are both positive and negative. The correlation value between two identical columns is 1. These correlation values indicate the dependency between two features. If the correlation value between a feature and target variable is positive it means that those features are positively correlated (if the correlation value of feature increases, the target variable value also increases). If the correlation value between a feature and target variable is negative it means that those features are negatively correlated (if the correlation value of feature increases, the target variable value decreases).
 
-I found the correlation values using corr() function and have drawn a heatmap referring its seaborn implementation https://seaborn.pydata.org/generated/seaborn.heatmap.html. 
+I found the correlation values using corr() function and have drawn a heatmap referring its seaborn implementation ***[8]***
 
 
 ```python
@@ -155,7 +152,7 @@ By observing the correlation values from above Heatmap, I summarized that the ra
 
 So when the Pclass=1 the Fare is more and the fare has been decreasing for the passengers in Pclass=3 which makes sense as the rich people were given priority.
 
-I have found the correlation coefficients with the target variable Survived referring code from https://datascience.stackexchange.com/questions/39137/how-can-i-check-the-correlation-between-features-and-target-variable and modified input accordingly.
+I have found the correlation coefficients with the target variable Survived referring code from ***[9]*** and modified input accordingly.
 
 **correlation values with target variable**
 
@@ -167,7 +164,7 @@ print(corr_values)
 
 ![image](https://user-images.githubusercontent.com/126722476/224257454-70ae2d66-1dc8-45e0-8eef-b90049e0a06f.png)
 
-After analysing the correlation values from heat map, I have referred code snippet from https://towardsdatascience.com/feature-selection-in-python-using-filter-method-7ae5cbc4ee05 in selecting abs threshold value. I chose threshold to be abs(0.08) and selected only features having correlation values above abs(0.08). The features which were selected are Pclass, Sex, Parch, Ticket, Fare, Cabin, Embarked.
+After analysing the correlation values from heat map, I have referred code snippet from ***[10]*** in selecting abs threshold value. I chose threshold to be abs(0.08) and selected only features having correlation values above abs(0.08). The features which were selected are Pclass, Sex, Parch, Ticket, Fare, Cabin, Embarked.
 
 ## Random Forest - Learning model, Prediction, Accuracy based on features selected from correlation values
 
@@ -185,15 +182,15 @@ predictions_c = model.predict(X_test)
 print(metrics.accuracy_score(y_test,predictions_c))
 ```
 
-I have used the code given by https://www.kaggle.com/code/alexisbcook/titanic-tutorial/notebook for training the Random Forest model and predicting with the test data. I have given the features which were selected from above analysis as the X variable and survived as the target y variable. I have split the training data into 63%-train, 37%- test data referring the code from https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html. 
-Then I have predicted on the test data from the split and calculated the accuracy score using the metrics function from https://scikitlearn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html.
+I have used the code given by ***[1]*** for training the Random Forest model and predicting with the test data. I have given the features which were selected from above analysis as the X variable and survived as the target y variable. I have split the training data into 63%-train, 37%- test data referring the code from ***[11]***. 
+Then I have predicted on the test data from the split and calculated the accuracy score using the metrics function from ***[12]***
 I got 0.833 as accuracy. Next I have calculated predictions on testing data using above features. After submitting the output csv to the competetion I got the accuracy as below
 
 ![image](https://user-images.githubusercontent.com/126722476/224372094-b95484db-b852-4bdd-9f63-de370ee16639.png)
 
 This is when I observed that its leading to overfitting because the test accuracy is less than my train accuracy. So I have split the training data into train=67% instead of 63% and test from 37% to 33%.
 
-I wanted to improve the accuracy score. So I implemented another feature selection method which is Chi-Square test referred from https://towardsdatascience.com/chi-square-test-for-feature-selection-in-machine-learning-206b1f0b8223
+I wanted to improve the accuracy score. So I implemented another feature selection method which is Chi-Square test referred from ***[13]***
 
 ```python
 from sklearn.feature_selection import chi2
@@ -213,7 +210,7 @@ p_values.plot.bar()
 
 ![image](https://user-images.githubusercontent.com/126722476/224381171-f6345960-8740-42a8-974c-5f501f55a874.png)
 
-According to the Sampath kumar, from https://towardsdatascience.com/chi-square-test-for-feature-selection-in-machine-learning-206b1f0b8223, , the features SibSp and PassengerId have high p-value which indicates that they are independent from the target variable and they need not be considered for training model. Hence I selected "Pclass","Name","Sex","Age","Parch","Ticket","Fare","Cabin","Embarked" as the features to train my model using various classifiers.
+According to the Sampath kumar, from ***[14]***, the features SibSp and PassengerId have high p-value which indicates that they are independent from the target variable and they need not be considered for training model. Hence I selected "Pclass","Name","Sex","Age","Parch","Ticket","Fare","Cabin","Embarked" as the features to train my model using various classifiers.
 
 I have split the data again into train (67%) and test (33%) with the features selected as below. I create a list called accuracy, which will append the accuracies calculated with various classifiers.
 
@@ -227,11 +224,11 @@ accuracy=[]
 
 ## Model prediction using various classifiers
 
-Code for Decision Tree, Logisitic Regression was referred from https://data-flair.training/blogs/machine-learning-algorithms-in-python/
+Code for Decision Tree, Logisitic Regression was referred from ***[15]***
 
 ### Linear SVM
 
-SVC stands for Support vector Machine Classifier, it is called linear SVC because in python this algorithm gives us the best fit hyperplane which differentiates or categorizes different features in the data. In this algorithm, we will calculate the vectore which optimizes the line and to ensure that the closes point in each group lies farsthest from each other in that group. I chose the kernel to be linear so that the algorithm differentiates features using a line and the value C indicates how perfectly we want to fit the data so 1.0 is usually considered as the best default parameter. I referred code from https://pythonprogramming.net/linear-svc-example-scikit-learn-svm-python/, modified nputs according to my requirement as below. 
+SVC stands for Support vector Machine Classifier, it is called linear SVC because in python this algorithm gives us the best fit hyperplane which differentiates or categorizes different features in the data. In this algorithm, we will calculate the vectore which optimizes the line and to ensure that the closes point in each group lies farsthest from each other in that group. I chose the kernel to be linear so that the algorithm differentiates features using a line and the value C indicates how perfectly we want to fit the data so 1.0 is usually considered as the best default parameter. I referred code from ***[16]***, modified nputs according to my requirement as below. 
 
 ```python
 from sklearn import svm
@@ -308,9 +305,10 @@ sns.lineplot(data=df,x=df["Classifiers"],y=df["Accuracies"])
 ## Contribution
 
 ## References
-[1] [https://practicaldatascience.co.uk/data-science/how-to-use-isna-to-check-for-missing-values-in-pandas-dataframes] 
 
-[2] [https://vitalflux.com/pandas-impute-missing-values-mean-median-mode/]
+|[1]|[https://practicaldatascience.co.uk/data-science/how-to-use-isna-to-check-for-missing-values-in-pandas-dataframes]|
+
+|[2]|[https://vitalflux.com/pandas-impute-missing-values-mean-median-mode/]|
 
 [3] [https://pbpython.com/categorical-encoding.html]
 
@@ -321,4 +319,6 @@ sns.lineplot(data=df,x=df["Classifiers"],y=df["Accuracies"])
 [6] [https://seaborn.pydata.org/generated/seaborn.lineplot.html]
 
 [7] [https://seaborn.pydata.org/generated/seaborn.countplot.html]
+
+[8] [https://seaborn.pydata.org/generated/seaborn.heatmap.html]
 
